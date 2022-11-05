@@ -1,0 +1,450 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Star Wars Serverless API",
+    "description": "Serverless API de Star Wars"
+  },
+  "host": "https://2y52usubzj.execute-api.us-east-1.amazonaws.com",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Star Wars",
+      "description": "Operaciones de obtención de datos de SWAPI"
+    },
+    {
+      "name": "Planetas",
+      "description": "Operaciones CRUD de planetas"
+    },
+    {
+      "name": "Especies",
+      "description": "Operaciones CRUD de especies"
+    },
+    {
+      "name": "Naves espaciales",
+      "description": "Operaciones CRUD de naves espaciales"
+    },
+    {
+      "name": "Vehiculos",
+      "description": "Operaciones CRUD de vehiculos"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/swapi/planets": {
+      "get": {
+        "tags": [
+          "Star Wars"
+        ],
+        "summary": "Obtener los planetas de SWAPI",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Planeta"
+            }
+          }
+        }
+      }
+    },
+    "/swapi/species": {
+      "get": {
+        "tags": [
+          "Star Wars"
+        ],
+        "summary": "Obtener las especies de SWAPI",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Especie"
+            }
+          }
+        }
+      }
+    },
+    "/swapi/starships": {
+      "get": {
+        "tags": [
+          "Star Wars"
+        ],
+        "summary": "Obtener las naves espaciales de SWAPI",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Nave Espacial"
+            }
+          }
+        }
+      }
+    },
+    "/swapi/vehicles": {
+      "get": {
+        "tags": [
+          "Star Wars"
+        ],
+        "summary": "Obtener los vehiculos de SWAPI",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Vehiculo"
+            }
+          }
+        }
+      }
+    },
+    "/planets": {
+      "get": {
+        "tags": [
+          "Planetas"
+        ],
+        "summary": "Obtener los planetas guardados",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Planeta"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Planetas"
+        ],
+        "description": "Guardar un planeta",
+        "parameters": [
+          {
+            "name": "planeta",
+            "in": "body",
+            "description": "Datos del planeta que se desea crear",
+            "schema": {
+              "$ref": "#/definitions/Planeta"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Un planeta fue creado",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/species": {
+      "get": {
+        "tags": [
+          "Especies"
+        ],
+        "summary": "Obtener las especies guardadas",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Especie"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Especies"
+        ],
+        "description": "Guardar un planeta",
+        "parameters": [
+          {
+            "name": "planeta",
+            "in": "body",
+            "description": "Datos de la especie que se desea crear",
+            "schema": {
+              "$ref": "#/definitions/Especie"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Una especie fue creada",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/starships": {
+      "get": {
+        "tags": [
+          "Naves espaciales"
+        ],
+        "summary": "Obtener las naves espaciales guardadas",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Nave Espacial"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Naves espaciales"
+        ],
+        "description": "Guardar una nave espacial",
+        "parameters": [
+          {
+            "name": "planeta",
+            "in": "body",
+            "description": "Datos de la nave espacial que se desea crear",
+            "schema": {
+              "$ref": "#/definitions/Nave Espacial"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Una nave espacial fue creada",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        }
+      }
+    },
+    "/vehicles": {
+      "get": {
+        "tags": [
+          "Vehiculos"
+        ],
+        "summary": "Obtener los vehiculos guardados",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Vehiculo"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Vehiculos"
+        ],
+        "description": "Guardar un vehiculo",
+        "parameters": [
+          {
+            "name": "vehiculo",
+            "in": "body",
+            "description": "Datos del vehiculo que se desea crear",
+            "schema": {
+              "$ref": "#/definitions/Vehiculo"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Un vehiculo fue creado",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Planeta": {
+      "required": [
+        "nombre",
+        "periodo_rotacion",
+        "periodo_orbital",
+        "clima",
+        "gravedad",
+        "terreno",
+        "poblacion"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "nombre": {
+          "type": "string"
+        },
+        "periodo_rotacion": {
+          "type": "number"
+        },
+        "periodo_orbital": {
+          "type": "number"
+        },
+        "clima": {
+          "type": "string"
+        },
+        "gravedad": {
+          "type": "string"
+        },
+        "terreno": {
+          "type": "string"
+        },
+        "poblacion": {
+          "type": "number"
+        }
+      }
+    },
+    "Especie": {
+      "required": [
+        "nombre",
+        "clasificacion",
+        "designacion",
+        "color_piel",
+        "color_cabello",
+        "tiempo_vida",
+        "lenguaje"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "nombre": {
+          "type": "string"
+        },
+        "clasificacion": {
+          "type": "number"
+        },
+        "designacion": {
+          "type": "number"
+        },
+        "color_piel": {
+          "type": "string"
+        },
+        "color_cabello": {
+          "type": "string"
+        },
+        "color_ojos": {
+          "type": "string"
+        },
+        "tiempo_vida": {
+          "type": "number"
+        },
+        "lenguaje": {
+          "type": "string"
+        }
+      }
+    },
+    "Nave Espacial": {
+      "required": [
+        "nombre",
+        "modelo",
+        "fabricante",
+        "maxima_velocidad",
+        "equipo",
+        "pasajeros",
+        "puntaje_hiper_motor",
+        "tipo"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "nombre": {
+          "type": "string"
+        },
+        "modelo": {
+          "type": "string"
+        },
+        "fabricante": {
+          "type": "string"
+        },
+        "maxima_velocidad": {
+          "type": "number"
+        },
+        "equipo": {
+          "type": "number"
+        },
+        "pasajeros": {
+          "type": "number"
+        },
+        "puntaje_hiper_motor": {
+          "type": "number"
+        },
+        "tipo": {
+          "type": "string"
+        }
+      }
+    },
+    "Vehiculo": {
+      "required": [
+        "nombre",
+        "modelo",
+        "fabricante",
+        "costo_en_creditos",
+        "pasajeros",
+        "tipo"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "nombre": {
+          "type": "string"
+        },
+        "modelo": {
+          "type": "string"
+        },
+        "fabricante": {
+          "type": "string"
+        },
+        "costo_en_creditos": {
+          "type": "number"
+        },
+        "pasajeros": {
+          "type": "number"
+        },
+        "tipo": {
+          "type": "string"
+        }
+      }
+    },
+    "Message": {
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "Error": {
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

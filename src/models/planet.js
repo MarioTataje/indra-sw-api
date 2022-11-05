@@ -16,8 +16,8 @@ class Planet {
     }
 
     static map = request => {
-        return new Planet(request.id, request.nombre, request.clima,
-            request.periodo_rotacion, request.periodo_orbital, request.gravedad, request.terreno, request.poblacion);
+        return new Planet(request.id, request.nombre, request.periodo_rotacion, request.periodo_orbital,
+            request.clima, request.gravedad, request.terreno, request.poblacion);
     }
 }
 
