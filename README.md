@@ -12,92 +12,54 @@ priority: 1
 
 API realizada en Express desplegada en una función lambda que se integra con la API de Star Wars
 
-## Anatomy of the template
+## Acerca del proyecto
 
-This template configures a single function, `api`, which is responsible for handling all incoming requests thanks to the `httpApi` event. To learn more about `httpApi` event configuration options, please refer to [httpApi event docs](https://www.serverless.com/framework/docs/providers/aws/events/http-api/). As the event is configured in a way to accept all incoming requests, `express` framework is responsible for routing and handling requests internally. Implementation takes advantage of `serverless-http` package, which allows you to wrap existing `express` applications. To learn more about `serverless-http`, please refer to corresponding [GitHub repository](https://github.com/dougmoscrop/serverless-http).
+El proyecto configura una función denominada como API la cual gestiona todas las solicitudes del evento httAPI. 
+Dicho evento esta configurado para aceptar todas las solicitud por lo que se utiliza Express Js para para enrutar y manejar
+las solicitudes.
 
-## Usage
+## Uso
 
-### Deployment
 
-Install dependencies with:
+### Despliegue
+
+En primer lugar se instalan las dependencias con
 
 ```
 npm install
 ```
 
-and then deploy with:
+y se puede desplegar el servicio utilizando el siguiente comando
 
 ```
 serverless deploy
 ```
 
-After running deploy, you should see output similar to:
+Una vez desplegado se presentará dicha url como prueba del serverless API
 
 ```bash
-Deploying aws-node-express-api-project to stage dev (us-east-1)
+endpoint: https://2y52usubzj.execute-api.us-east-1.amazonaws.com
 
-✔ Service deployed to stack aws-node-express-api-project-dev (196s)
-
-endpoint: ANY - https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com
-functions:
-  api: aws-node-express-api-project-dev-api (766 kB)
+documentacion de la api:
+  endpoint: https://2y52usubzj.execute-api.us-east-1.amazonaws.com/api-docs/
 ```
 
-_Note_: In current form, after deployment, your API is public and can be invoked by anyone. For production deployments, you might want to configure an authorizer. For details on how to do that, refer to [`httpApi` event docs](https://www.serverless.com/framework/docs/providers/aws/events/http-api/).
+### Local
 
-### Invocation
-
-After successful deployment, you can call the created application via HTTP:
-
-```bash
-curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/
-```
-
-Which should result in the following response:
+Para proceder a ejecutarlo de manera local se procede a realizar el siguiente comando
 
 ```
-{"message":"Hello from root!"}
+npm run start
 ```
 
-Calling the `/hello` path with:
-
-```bash
-curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/hello
-```
-
-Should result in the following response:
-
-```bash
-{"message":"Hello from path!"}
-```
-
-If you try to invoke a path or method that does not have a configured handler, e.g. with:
-
-```bash
-curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/nonexistent
-```
-
-You should receive the following response:
-
-```bash
-{"error":"Not Found"}
-```
-
-### Local development
-
-It is also possible to emulate API Gateway and Lambda locally by using `serverless-offline` plugin. In order to do that, execute the following command:
-
-```bash
-serverless plugin install -n serverless-offline
-```
-
-It will add the `serverless-offline` plugin to `devDependencies` in `package.json` file as well as will add it to `plugins` in `serverless.yml`.
-
-After installation, you can start local emulation with:
+La url mostrada es la siguiente
 
 ```
-serverless offline
+http://localhost:4040/
 ```
 
-To learn more about the capabilities of `serverless-offline`, please refer to its [GitHub repository](https://github.com/dherault/serverless-offline).
+### Pruebas
+
+Se realizaron pruebas unitarias para cada endpoint mostrando en la API, se pueden encontrar dichas pruebas
+en la carpeta src/tests
+
